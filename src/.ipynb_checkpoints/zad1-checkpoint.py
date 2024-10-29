@@ -2,8 +2,7 @@
 import numpy as np
 import pandas as pd
 import infoManagment as im
-import matplotlib.pyplot as pyplt
-import plotInfo as plot
+import plotInfo as pl
 
 SETOSA = 0
 VERSICOL = 1
@@ -23,8 +22,6 @@ def main():
 
     im.writeToHtml(popStatsFormated, 'table.html')
     lengthInformation = getSepalLengthStats(data)
-
-    plot.simpleStatistics(data, "abc.png")
 
     return data
 
@@ -100,6 +97,8 @@ def getInformation(specificData: pd.Series):
     }
 
     return informationSet
+
+
 
 
 main()
