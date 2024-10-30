@@ -2,7 +2,6 @@
 import numpy as np
 import pandas as pd
 import infoManagment as im
-import matplotlib.pyplot as pyplt
 import plotInfo as plot
 
 SETOSA = 0
@@ -14,9 +13,11 @@ def main():
     DATA_LOC = '../resources/data1.csv'
     DATA_COL_NAMES = (["length of the sepal(cm)", "width of the sepal(cm)", "length of the petal(cm)",
                     "width of the petal(cm)", "type"])
-    RESULTS_FILE_NAMES = (["populationTable.html", "characteristics.html", ])
+    RESULTS_FILE_NAMES = (["generic.png", "specific.png"])
 
     data = im.read_csv(DATA_LOC, DATA_COL_NAMES)
+    plot.simpleStatistics(data, RESULTS_FILE_NAMES[0])
+    plot.specificStatisics(data, RESULTS_FILE_NAMES[1])
 
     popStats = getIrisPopulationInfo(data)
     popStatsFormated = getPopulationStats(popStats)
@@ -24,7 +25,6 @@ def main():
     im.writeToHtml(popStatsFormated, 'table.html')
     lengthInformation = getSepalLengthStats(data)
 
-    plot.simpleStatistics(data, "abc.png")
 
     return data
 
